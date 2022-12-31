@@ -1,0 +1,19 @@
+.homebanner {
+    object-fit: fill;
+    width: 100%;
+}
+
+.banner {
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 3.00px; 
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 300%;
+    background-image: url("../ecommerce-background.jpg");
+    object-fit: fill;
+    width: 100%;
+    height: 70vh;
+}

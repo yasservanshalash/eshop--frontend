@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import WishList from "./pages/WishList";
+import ProductDetails from "./pages/ProductDetails";
+import Products from "./pages/Products";
 
 function App() {
+  const [userInput, setUserInput] = useState<string>("");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar userInput={userInput} setUserInput={setUserInput} />
+      <Routes>
+        <Route path="/" element={<Home userInput={userInput} />} />
+        <Route path="/products" element={<Products userInput={userInput} />} />
+        <Route path="/products/:id" element={<ProductDetails />}/>
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishList" element={<WishList />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }

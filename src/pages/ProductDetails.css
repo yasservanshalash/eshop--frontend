@@ -1,0 +1,18 @@
+.itemDetail {
+    width: 70%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px  ;
+}
+
+.productImg {
+    width: 400px;
+}
+.productInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

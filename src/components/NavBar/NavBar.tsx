@@ -1,0 +1,85 @@
+import * as React from "react";
+import "./NavBar.css";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Input from "@mui/material/Input";
+import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import StorefrontIcon from "@mui/icons-material/Storefront";
+
+import "./NavBar.css";
+import { Link } from "react-router-dom";
+
+type PropType = {
+  userInput: string;
+  setUserInput: Function;
+};
+export default function NavBar({ userInput, setUserInput }: PropType) {
+  const [searchInput, setSearchInput] = React.useState<string>("");
+
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+  };
+  const clickHandler = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    setUserInput(searchInput);
+  };
+
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" color="transparent" className="appbar">
+        <Toolbar>
+          <Link to="/">
+            <div className="logo">
+              <StorefrontIcon />
+              <Typography variant="h6" component="div" sx={{ flexGrow: 0.02 }}>
+                eShop
+              </Typography>
+            </div>
+          </Link>
+
+          <InputBase
+            sx={{ ml: 1, flex: 0.88 }}
+            placeholder="Search shop by name of product"
+            inputProps={{ "aria-label": "search google maps" }}
+            onChange={changeHandler}
+          />
+          <IconButton
+            type="submit"
+            sx={{ p: "10px" }}
+            aria-label="search"
+            onClick={clickHandler}
+          >
+            <Link to="/products">
+              <SearchIcon type="submit" className="searchIcon" />
+            </Link>
+          </IconButton>
+          <div className="buttons">
+            <div className="wishlist__link">
+              <Link to="/wishList">
+                <Button color="inherit" startIcon={<FavoriteIcon />}>
+                  WishList
+                </Button>
+              </Link>
+            </div>
+            <div className="cart__link">
+              <Link to="/cart">
+                <Button color="inherit" startIcon={<ShoppingCartIcon />}>
+                  Cart
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+}

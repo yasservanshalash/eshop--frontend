@@ -1,0 +1,45 @@
+.appbar {
+    display: flex;
+    align-content: center;
+}
+
+.logo {
+display: flex;
+gap: 10px;
+align-content: center;
+align-items: center;
+margin-right: 30px;
+}
+
+.buttons {
+    display: flex;
+    position: relative;
+    left: 60px;
+    gap: 30px;
+}
+
+.wishlist__link {
+    display: flex;
+     align-content: center;
+    align-self: center;
+    align-items: center;
+}
+
+.cart__link {
+    display: flex;
+    align-items: center;
+}
+
+a { 
+    text-decoration: none;
+    color: black;
+}
+
+.searchIcon {
+    color: black;
+    width: 24;
+    height: 24;
+    position: relative;
+    top: 4px;
+    padding: 0px;
+}

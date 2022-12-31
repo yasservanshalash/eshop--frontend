@@ -1,0 +1,19 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0px;
+    padding: 20px 60px;
+
+}
+
+.footer__logo {
+    align-self: center;
+}
+
+.footer__links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 100px;
+}
