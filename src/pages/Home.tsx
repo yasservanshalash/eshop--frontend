@@ -8,7 +8,7 @@ type PropType = {
 }
 const Home = ({userInput}: PropType) => {
   return (
-    <div>
+    <div className='home'>
         <div className='banner'>
           <h1>Welcome to eShop</h1>
         </div>

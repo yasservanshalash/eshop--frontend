@@ -1,8 +1,3 @@
-.homebanner {
-    object-fit: fill;
-    width: 100%;
-}
-
 .banner {
     -webkit-text-fill-color: white;
     -webkit-text-stroke-color: black;
@@ -17,3 +12,4 @@
     width: 100%;
     height: 70vh;
 }
+

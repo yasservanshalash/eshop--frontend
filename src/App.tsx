@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
@@ -8,9 +8,20 @@ import Cart from "./pages/Cart";
 import WishList from "./pages/WishList";
 import ProductDetails from "./pages/ProductDetails";
 import Products from "./pages/Products";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "./redux/store";
+import { fetchProductData } from "./redux/thunk/products";
+import { productActions } from "./redux/slices/productSlice";
 
 function App() {
   const [userInput, setUserInput] = useState<string>("");
+  const productList = useSelector(
+    (state: RootState) => state.products.products
+  );
+  const dispatch = useDispatch<AppDispatch>();
+  useEffect(() => {
+    dispatch(fetchProductData());
+  }, [dispatch]);
   return (
     <div className="App">
       <NavBar userInput={userInput} setUserInput={setUserInput} />

@@ -13,7 +13,8 @@ import InputBase from "@mui/material/InputBase";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StorefrontIcon from "@mui/icons-material/Storefront";
-
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 
@@ -22,7 +23,12 @@ type PropType = {
   setUserInput: Function;
 };
 export default function NavBar({ userInput, setUserInput }: PropType) {
+  
   const [searchInput, setSearchInput] = React.useState<string>("");
+
+  const favProducts = useSelector(
+    (state: RootState) => state.favProducts.favProducts
+  );
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -57,15 +63,24 @@ export default function NavBar({ userInput, setUserInput }: PropType) {
             sx={{ p: "10px" }}
             aria-label="search"
             onClick={clickHandler}
+            disableRipple
+            className="searchBtn"
           >
             <Link to="/products">
               <SearchIcon type="submit" className="searchIcon" />
             </Link>
           </IconButton>
           <div className="buttons">
+            <div className="products__link">
+            <Link to="/products">
+                <Button color="inherit">
+                  Products
+                </Button>
+              </Link>
+            </div>
             <div className="wishlist__link">
               <Link to="/wishList">
-                <Button color="inherit" startIcon={<FavoriteIcon />}>
+                <Button color="inherit" startIcon={<FavoriteIcon style={{ color: favProducts.length > 0 ? "red" : "" }}/>}>
                   WishList
                 </Button>
               </Link>

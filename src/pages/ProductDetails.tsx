@@ -14,13 +14,11 @@ const ProductDetails = () => {
           fetch(url)
             .then((response) => response.json())
             .then((items) => setItem(items))
-            .catch((error) => console.log(error));
+            .catch((error) => console.error(error));
         }
         fetchItem();
       }, []);
       
-      console.log(item);
-
   return (
     <div>
     <div className='itemDetail'>

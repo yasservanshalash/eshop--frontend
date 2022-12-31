@@ -3,3 +3,10 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap:100px;
 }
+.progress {
+    width: 1600px;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}

@@ -1,8 +1,9 @@
 .footer {
     display: flex;
     justify-content: space-between;
-    position: absolute;
+    position:static;
     bottom: 0px;
+    background-color:  white;
     padding: 20px 60px;
 
 }
