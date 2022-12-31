@@ -22,7 +22,7 @@ const ProductList = ({ userInput }: PropType) => {
     <div className="products">
     {
         productList.length === 0 ? (    <Box sx={{ display: 'flex' }} className="progress">
-        <CircularProgress />
+        <CircularProgress color="inherit"/>
       </Box>) :
       productList.filter((product: Product) => product.title.toLowerCase().includes(userInput.toLowerCase())).map((product: Product) => (
         <ProductItem key={crypto.randomUUID()} product={product} />

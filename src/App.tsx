@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <NavBar userInput={userInput} setUserInput={setUserInput} />
       <Routes>
-        <Route path="/" element={<Home userInput={userInput} />} />
+        <Route path="/" element={<Home userInput={userInput} productList={productList} />} />
         <Route path="/products" element={<Products userInput={userInput} />} />
         <Route path="/products/:id" element={<ProductDetails />}/>
         <Route path="/cart" element={<Cart />} />

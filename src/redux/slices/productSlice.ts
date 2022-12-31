@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Product } from "../../types/types";
-type initialState = {
+type initialStateType = {
     products: Product[],
     loading: boolean
 }
-const initialState = {
+const initialState: initialStateType = {
     products: [],
     loading: false
 }
