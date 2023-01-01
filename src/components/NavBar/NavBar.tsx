@@ -16,7 +16,8 @@ import StorefrontIcon from "@mui/icons-material/Storefront";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import "./NavBar.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type PropType = {
   userInput: string;
@@ -24,6 +25,8 @@ type PropType = {
 };
 export default function NavBar({ userInput, setUserInput }: PropType) {
   
+  const navigate = useNavigate();
+
   const [searchInput, setSearchInput] = React.useState<string>("");
 
   const favProducts = useSelector(
@@ -43,6 +46,15 @@ export default function NavBar({ userInput, setUserInput }: PropType) {
     setUserInput(searchInput);
   };
 
+  const keyPress = (e: any) => {
+    if(e.keyCode === 13){
+       setUserInput(e.target.value);
+       console.log(e.target.value);
+       // put the login here
+      navigate("/products");
+      }
+ }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent" className="appbar">
@@ -55,12 +67,12 @@ export default function NavBar({ userInput, setUserInput }: PropType) {
               </Typography>
             </div>
           </Link>
-
+          
           <InputBase
             sx={{ ml: 1, flex: 0.88 }}
             placeholder="Search shop by name of product"
             inputProps={{ "aria-label": "search google maps" }}
-            onChange={changeHandler}
+            onChange={changeHandler} onKeyDown={keyPress}
           />
           <IconButton
             type="submit"
@@ -71,7 +83,7 @@ export default function NavBar({ userInput, setUserInput }: PropType) {
             className="searchBtn"
           >
             <Link to="/products">
-              <SearchIcon type="submit" className="searchIcon" />
+              <SearchIcon type="submit "className="searchIcon" />
             </Link>
           </IconButton>
           <div className="buttons">

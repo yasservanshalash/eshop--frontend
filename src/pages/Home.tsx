@@ -29,7 +29,7 @@ const Home = ({ userInput, productList }: PropType) => {
 
   console.log(products, "products");
   return products.length > 0 ? (
-    <Carousel autoplay autoplaySpeed={5000}>
+    <Carousel autoplay autoplaySpeed={2000}>
       <div>
         <div className="page1">
           <h3>Welcome to eShop</h3>

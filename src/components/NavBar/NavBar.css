@@ -37,8 +37,9 @@ a {
 
 .searchIcon {
     color: black;
-    width: 30px;
-    height: 50px;
+    width: 24px;
+    height: 24px;
+    margin: 10px;
     position: relative;
     top: 4px;
     padding: -10px;
