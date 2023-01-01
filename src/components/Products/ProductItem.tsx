@@ -8,35 +8,71 @@ import { useDispatch, useSelector } from "react-redux";
 import { favActions } from "../../redux/slices/favoriteSlice";
 import { cartActions } from "../../redux/slices/cartSlice";
 import IconButton from "@mui/material/IconButton";
+import { Snackbar } from "@mui/material/";
+import Alert from "@mui/material/Alert";
 import { RootState } from "../../redux/store";
 type PropType = {
   product: Product;
 };
 const ProductItem = ({ product }: PropType) => {
+
+  //STATE
+  const [favAdd, setFavAdd] = React.useState(false);
+  const [favRem, setFavRem] = React.useState(false);
+  const [cartAdd, setCartAdd] = React.useState(false);
+  const [cartRem, setCartRem] = React.useState(false);
+
   const favProducts = useSelector(
     (state: RootState) => state.favProducts.favProducts
   );
-  console.log(favProducts);
   const cart = useSelector(
     (state: RootState) => state.cart.cart
   );
-  console.log(cart)
-
+    // DISPATCH
   const dispatch = useDispatch();
-  // const favPressed = favProducts.includes(product) ? true : false;
 
   const [favClicked, setFavClicked] = useState<boolean>(favProducts.includes(product) ? true : false);
   const [cartClicked, setCartClicked] = useState<boolean>(cart.includes(product) ? true : false);
 
+  // HANDLERS
 
+  const favAddHandleClick = () => {
+    setFavAdd(true);
+  };
+
+  const favRemHandleClick = () => {
+    setFavRem(true);
+  };
+
+  const cartAddHandleClick = () => {
+    setCartAdd(true);
+}
+
+const cartRemHandleClick = () => {
+  setCartRem(true);
+};
+
+const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+  if (reason === 'clickaway') {
+    return;
+  }
+
+  setFavAdd(false);
+  setFavRem(false);
+  setCartAdd(false);
+  setCartRem(false);
+};
+    
   const heartClickHandler = () => {
     if (favClicked) {
       //remove handler
       dispatch(favActions.removeFavResolution(product.title));
       setFavClicked(false);
+      favRemHandleClick();
     } else {
       dispatch(favActions.addFavResolution(product));
       setFavClicked(true);
+      favAddHandleClick();
     }
   };
 
@@ -45,12 +81,37 @@ const ProductItem = ({ product }: PropType) => {
       //remove handler
       dispatch(cartActions.removeFromCart(product.title));
       setCartClicked(false);
+      cartRemHandleClick();
     } else {
       dispatch(cartActions.addToCart(product));
       setCartClicked(true);
+      cartAddHandleClick();
     }
   };
   return (
+    <div className="container">
+      <div className="snackbars">
+      <Snackbar open={favAdd} autoHideDuration={1000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Product Added to wishlist!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={favRem} autoHideDuration={1000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="info" sx={{ width: '100%' }}>
+          Product removed from wishlist!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={cartAdd} autoHideDuration={1000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Product Added to Cart!
+        </Alert>
+      </Snackbar>
+      <Snackbar open={cartRem} autoHideDuration={1000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="info" sx={{ width: '100%' }}>
+          Product removed from Cart!
+        </Alert>
+      </Snackbar>
+      </div>
     <div className="product">
       <Link to={`/products/${product.id}`}>
         <h3>{product.title}</h3>
@@ -68,7 +129,7 @@ const ProductItem = ({ product }: PropType) => {
         <IconButton aria-label="add to favorites">
           <ShoppingCartIcon
             onClick={cartClickHandler}
-            style={{ color: cartClicked ? "blue" : "" }}
+            style={{ color: cartClicked ? "#1876D1" : "" }}
           />
         </IconButton>
         <Link to={`/products/${product.id}`}>
@@ -76,6 +137,8 @@ const ProductItem = ({ product }: PropType) => {
         </Link>
       </div>
     </div>
+    </div>
+
   );
 };
 

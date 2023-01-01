@@ -18,6 +18,8 @@ import { RootState } from "../../redux/store";
 import "./NavBar.css";
 import { Link, Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Badge from '@mui/material/Badge';
+
 
 type PropType = {
   userInput: string;
@@ -103,9 +105,12 @@ export default function NavBar({ userInput, setUserInput }: PropType) {
             </div>
             <div className="cart__link">
               <Link to="/cart">
-                <Button color="inherit" startIcon={<ShoppingCartIcon style={{ color: cart.length > 0 ? "blue" : "" }}/>}>
+              <Badge badgeContent={cart.length} color="primary">
+
+                <Button color="inherit" startIcon={<ShoppingCartIcon />}>
                   Cart
                 </Button>
+                </Badge>
               </Link>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction, current } from "@reduxjs/toolkit";
+import { Action } from "@remix-run/router";
 import { Product } from "../../types/types";
 
 type initialStateType = {
@@ -34,8 +35,13 @@ const cartSlice = createSlice({
     // },
     removeFromCart: (state, action) => {
         state.cart.splice(state.cart.findIndex((item) => item.title === action.payload), 1);
-
     },
+    increment: (state, action) => {
+        const product = state.cart.find((product) => product.title === action.payload.title);
+        if(product) {
+            product.quantity = product.quantity! + 1
+        }
+    }
   },
 });
 
