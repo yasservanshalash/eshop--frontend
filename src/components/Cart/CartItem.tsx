@@ -22,17 +22,27 @@ const CartItem = ({cartItem}: PropType) => {
 
     //     }
     //    }
-    const clickHandler = () => {
+    const increment = () => {
         setQuantity(quantity + 1);
         dispatch(cartActions.increment(cartItem))
+    }
+
+    const decrement = () => {
+        if(quantity < 2) {
+            return
+        } else {
+            setQuantity(quantity - 1);
+            dispatch(cartActions.decrement(cartItem))
+        }
     }
   return (
     <div>
         <h1>{cartItem.title}</h1>
         <p>{cartItem.description}</p>
-        <button onClick={clickHandler}>Increment</button>
+        <p>{cartItem.price}</p>
+        <button onClick={increment}>Increment</button>
         <p>{cartItem.quantity}</p>
-        <button onClick={clickHandler}>Decrement</button>
+        <button onClick={decrement}>Decrement</button>
     </div>
   )
 }
