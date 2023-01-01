@@ -30,6 +30,10 @@ export default function NavBar({ userInput, setUserInput }: PropType) {
     (state: RootState) => state.favProducts.favProducts
   );
 
+  const cart = useSelector(
+    (state: RootState) => state.cart.cart
+  );
+
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchInput(e.target.value);
@@ -87,7 +91,7 @@ export default function NavBar({ userInput, setUserInput }: PropType) {
             </div>
             <div className="cart__link">
               <Link to="/cart">
-                <Button color="inherit" startIcon={<ShoppingCartIcon />}>
+                <Button color="inherit" startIcon={<ShoppingCartIcon style={{ color: cart.length > 0 ? "blue" : "" }}/>}>
                   Cart
                 </Button>
               </Link>

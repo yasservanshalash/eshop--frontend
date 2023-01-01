@@ -1,12 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
-import ProductItem from '../components/Products/ProductItem'
+import CartItem from '../components/Cart/CartItem'
+
 const Cart = () => {
-  const cart = useSelector((state: RootState) => state.favProducts.favProducts)
+  const cart = useSelector((state: RootState) => state.cart.cart)
   return (
     <div>
-      {cart.map((cartItem) => <ProductItem product={cartItem}/>)}
+      {cart.map((cartItem) => (
+        <CartItem cartItem={cartItem} />
+      ))}
     </div>
   )
 }

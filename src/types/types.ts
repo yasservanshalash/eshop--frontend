@@ -9,4 +9,5 @@ export type Product = {
         count: number,
     },
     title: string
+    quantity?: number
 }
