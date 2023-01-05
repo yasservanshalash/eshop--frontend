@@ -18,7 +18,43 @@ const productSlice = createSlice({
         },
         toggleLoading: (state, action) => {
             state.loading = action.payload
-        }
+        },
+        sortByNameAscending: (state) => {
+          state.products = state.products.sort(function (a, b) {
+            const nameA = a.title.toUpperCase(); // ignore upper and lowercase
+            const nameB = b.title.toUpperCase(); // ignore upper and lowercase
+            if (nameA > nameB) {
+              return 1;
+            }
+            if (nameA < nameB) {
+              return -1;
+            }
+    
+            // names must be equal
+            return 0;
+          });
+        },
+        sortByNameDescending: (state) => {
+          state.products = state.products.sort(function (a, b) {
+            const nameA = a.title.toUpperCase(); // ignore upper and lowercase
+            const nameB = b.title.toUpperCase(); // ignore upper and lowercase
+            if (nameA > nameB) {
+              return -1;
+            }
+            if (nameA < nameB) {
+              return 1;
+            }
+    
+            // names must be equal
+            return 0;
+          });
+        },
+        sortByPriceAscending: (state) => {
+            state.products = state.products.sort((r1, r2) => (r1.price > r2.price) ? 1 : (r1.price < r2.price) ? -1 : 0);
+        },
+        sortByPriceDescending: (state) => {
+            state.products = state.products.sort((r1, r2) => (r1.price < r2.price) ? 1 : (r1.price > r2.price) ? -1 : 0);
+        },
     }
 })
 

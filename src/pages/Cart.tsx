@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
 import CartItem from '../components/Cart/CartItem'
-
+import "./Cart.css"
 const Cart = () => {
   const cart = useSelector((state: RootState) => state.cart.cart)
   const products = useSelector((state: RootState) => state.products.products)
@@ -15,11 +15,15 @@ useEffect(() => {
   }, [])
   console.log(cart, "cart")
   return (
-    <div>
+    <div className='cart'>
+        <div className='cartItems'>
       {cart.map((cartItem) => (
         <CartItem cartItem={cartItem} />
       ))}
-      <h1>Total: {sum}</h1>
+    </div>
+    <div className='total'>
+      Total: ${Math.trunc(sum)}
+    </div>
     </div>
   )
 }

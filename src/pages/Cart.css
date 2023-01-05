@@ -1,0 +1,18 @@
+.cartItems {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cart {
+    display: flex;
+}
+
+.total {
+    margin: 100px;
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 300%;
+}

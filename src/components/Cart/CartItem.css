@@ -1,0 +1,24 @@
+.cartItem {
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin: 40px;
+}
+
+.cartImg img {
+    width: 100px;
+    object-fit: contain;
+}
+
+.cartInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cartButtons {
+    display: flex;
+    gap: 20px;
+}
