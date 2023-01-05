@@ -24,18 +24,20 @@ const ProductDetails = () => {
         // }
         // fetchItem();
         setItem(product);
-      }, []);
+      }, [products]);
       console.log(item)
   return (
     <div>
-    <div className='itemDetail'>
+      {
+        item ?     <div className='itemDetail'>
         <img src={item?.image} alt={item?.title} className="productImg"/>
         <div className='productInfo'>
         <h1>{item?.title}</h1>
         <p>${item?.price}</p>
         <p>{item?.category}</p>
         </div>
-    </div>
+    </div> : <h1>Loading</h1>
+      }
     </div>
   )
 }

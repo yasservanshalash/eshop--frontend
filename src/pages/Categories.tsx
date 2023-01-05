@@ -6,6 +6,7 @@ import { Product } from '../types/types';
 import "./Categories.css"
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
+import ProductItem from '../components/Products/ProductItem';
 const Categories = () => {
     const [items, setItems]  = useState<Product[]>([]);
     let { name } = useParams();
@@ -28,16 +29,17 @@ const Categories = () => {
         {   products.length === 0 ? <h1>Loading</h1> :
             products.filter((product) => product.category === name).map((product) => {
                 return (
-                    <div key={crypto.randomUUID()} className='product'>
-                        <div className='image'>
-                        <img src={product.image} alt={product.title} className="productImg"/>
-                        </div>
-                    <div className='productinfo'>
-                    <h1>{product.title}</h1>
-                    <p>${product.price}</p>
-                    <p>{product.category}</p>
-                    </div>
-                    </div>
+                    // <div  className='product'>
+                    //     <div className='image'>
+                    //     <img src={product.image} alt={product.title} className="productImg"/>
+                    //     </div>
+                    // <div className='productinfo'>
+                    // <h1>{product.title}</h1>
+                    // <p>${product.price}</p>
+                    // <p>{product.category}</p>
+                    // </div>
+                    // </div>
+                    <ProductItem key={crypto.randomUUID()} product={product} />
                 )
             })
         }
