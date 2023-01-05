@@ -53,7 +53,7 @@ const Home = ({ userInput, productList }: PropType) => {
       </div>
       <div>
         <div className="page4">
-          <div className="productImg">
+          <div className="productImgHome">
           <img src={backbag} alt="img" />
           </div>
           <div className="productDetails">

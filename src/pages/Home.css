@@ -71,14 +71,13 @@
     background-color: rgb(239, 239, 239);
     justify-content: center;
     align-items: center;
-    gap: 200px
 
 }
 
-.productImg img {
+.productImgHome img {
     width: 400px;
     padding: 100px;
-   mix-blend-mode:darken;
+   mix-blend-mode:normal;
 }
 
 .productDetails {
