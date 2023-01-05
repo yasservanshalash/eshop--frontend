@@ -3,6 +3,7 @@ import { Product } from "../../types/types";
 import "./ProductItem.css";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { KeyboardArrowRightOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { favActions } from "../../redux/slices/favoriteSlice";
@@ -136,7 +137,12 @@ const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
           />
         </IconButton>
         <Link to={`/products/${product.id}`}>
-          <button>details...</button>
+
+        <IconButton aria-label="add to favorites">
+          <KeyboardArrowRightOutlined
+            onClick={cartClickHandler}
+          />
+        </IconButton>
         </Link>
       </div>
       </div>

@@ -1,18 +1,25 @@
 .itemDetail {
-    width: 70%;
-    height: 80vh;
+    margin: 150px auto;
+    max-width: 1000px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 100px  ;
 }
 
-.productImg {
-    width: 400px;
+.productImgDetail {
+    width: 300px;
+    aspect-ratio: 3/2;
+    object-fit: contain;
 }
 .productInfo {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+
+.arrow {
+    margin-top: 30px;
 }
