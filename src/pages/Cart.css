@@ -9,10 +9,20 @@
 }
 
 .total {
-    margin: 100px;
     width: 600px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-    font-size: 300%;
+    text-align: center;
+    margin: 100px auto;
+}
+
+.total {
+    margin: 100px auto;
+    text-align: center;
+}
+
+.total h1 {
+    position: relative;
+    left: -127px;
 }

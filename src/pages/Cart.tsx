@@ -22,7 +22,9 @@ useEffect(() => {
       ))}
     </div>
     <div className='total'>
-      Total: ${Math.trunc(sum)}
+      {
+        sum === 0 ? <h1>No Products in Cart Yet</h1> : <p>Total: ${Math.trunc(sum)}</p>
+      }
     </div>
     </div>
   )

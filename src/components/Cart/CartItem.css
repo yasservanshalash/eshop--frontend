@@ -5,6 +5,7 @@
     align-items: center;
     gap: 100px;
     margin: 40px;
+    padding: 0px 100px;
 }
 
 .cartImg img {
@@ -21,4 +22,29 @@
 .cartButtons {
     display: flex;
     gap: 20px;
+}
+
+.cartButtons button {
+    width: 30px;
+    background-color: transparent;
+
+}
+
+.remove {
+    align-self: flex-end;
+    justify-self: flex-end;
+    border: 2px solid transparent;
+
+}
+
+.quantityButtons {
+    display: flex;
+    justify-content: flex-start;
+    border: 0px;
+
+}
+
+.removeButton.remove {
+    width: 400px;
+    border: 0px;
 }

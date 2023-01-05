@@ -36,6 +36,11 @@ const CartItem = ({ cartItem }: PropType) => {
       dispatch(cartActions.decrement(cartItem));
     }
   };
+
+  const removeFromCart = () => {
+    dispatch(cartActions.removeFromCart(cartItem.title));
+
+  }
   return (
     <div className="cartItem">
       <div className="cartImg">
@@ -46,9 +51,13 @@ const CartItem = ({ cartItem }: PropType) => {
         <p>{cartItem.description}</p>
         <p>{cartItem.price}</p>
         <div className="cartButtons">
-          <button onClick={increment}>Increment</button>
+          <div className="quantityButtons"></div>
+          <button onClick={increment}>+</button>
           <p>{cartItem.quantity}</p>
-          <button onClick={decrement}>Decrement</button>
+          <button onClick={decrement}>-</button>
+          <div className="removeButton">
+          <button onClick={removeFromCart} className="remove">Remove</button>
+          </div>
         </div>
       </div>
     </div>
