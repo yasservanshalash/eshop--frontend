@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Product } from '../types/types';
 import "./ProductDetails.css"
@@ -17,6 +18,8 @@ const ProductDetails = () => {
         setItem(product);
       }, [products]);
       console.log(item)
+
+      const navigate = useNavigate();
   return (
     <div>
       {
@@ -26,12 +29,10 @@ const ProductDetails = () => {
         <h1>{item?.title}</h1>
         <p>${item?.price}</p>
         <p>{item?.category}</p>
-        <Link to="/products">
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites" onClick={() => navigate(-1)}>
           <KeyboardArrowLeft
           />
         </IconButton>
-        </Link>
         </div>
     </div> : <h1>Loading</h1>
       }
