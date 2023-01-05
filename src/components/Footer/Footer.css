@@ -1,20 +1,16 @@
+
+
 .footer {
+    margin: 0px;
+    padding: 50px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    position:static;
+    position: static;
     bottom: 0px;
-    background-color:  white;
-    padding: 20px 60px;
-
-}
-
-.footer__logo {
+    justify-content: center;
+  }
+  
+  .footer p {
+    justify-self: center;
     align-self: center;
-}
-
-.footer__links {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 100px;
-}
+  }

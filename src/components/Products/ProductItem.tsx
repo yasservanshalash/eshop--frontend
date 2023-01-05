@@ -112,7 +112,7 @@ const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
         </Alert>
       </Snackbar>
       </div>
-    <div className="product">
+    <div className="productItem">
       <Link to={`/products/${product.id}`}>
         <h3>{product.title}</h3>
       </Link>

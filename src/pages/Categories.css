@@ -1,0 +1,23 @@
+.product {
+    margin: 100px;
+    width:80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 100px
+
+}
+
+.productImg {
+    width: 200px;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    mix-blend-mode: color-burn;
+}
+
+.productinfo {
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ align-items: flex-start;
+}

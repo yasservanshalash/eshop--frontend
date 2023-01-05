@@ -19,6 +19,7 @@ import "./NavBar.css";
 import { Link, Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Badge from '@mui/material/Badge';
+import Divider from '@mui/material/Divider';
 
 
 type PropType = {
@@ -58,6 +59,7 @@ export default function NavBar({ userInput, setUserInput }: PropType) {
  }
 
   return (
+    <div>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent" className="appbar">
         <Toolbar>
@@ -116,6 +118,16 @@ export default function NavBar({ userInput, setUserInput }: PropType) {
           </div>
         </Toolbar>
       </AppBar>
+
+      <ul className="lowernav">
+      <Link to="/categories/electronics"><p>electronics</p></Link>
+      <Link to="/categories/jewelery"><p>jewelery</p></Link>
+      <Link to="/categories/men's clothing"><p>men's clothing</p></Link>
+      <Link to="/categories/women's clothing"><p>women's clothing</p></Link>
+      </ul>
+      <Divider />
+
     </Box>
+    </div>
   );
 }

@@ -62,6 +62,7 @@
  }
  .images img {
     width: 100px;
+    object-fit: contain;
  }
 .page4 {
     width: 100%;
@@ -70,12 +71,14 @@
     background-color: rgb(239, 239, 239);
     justify-content: center;
     align-items: center;
+    gap: 200px
 
 }
 
 .productImg img {
     width: 400px;
     padding: 100px;
+   mix-blend-mode:darken;
 }
 
 .productDetails {

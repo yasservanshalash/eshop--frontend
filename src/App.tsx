@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "./redux/store";
 import { fetchProductData } from "./redux/thunk/products";
 import { productActions } from "./redux/slices/productSlice";
+import Categories from "./pages/Categories";
 
 function App() {
   const [userInput, setUserInput] = useState<string>("");
@@ -31,6 +32,7 @@ function App() {
         <Route path="/products/:id" element={<ProductDetails />}/>
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishList" element={<WishList />} />
+        <Route path="/categories/:name" element={<Categories />} />
       </Routes>
       <Footer />
     </div>
