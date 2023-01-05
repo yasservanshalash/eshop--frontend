@@ -27,7 +27,6 @@ const Home = ({ userInput, productList }: PropType) => {
     setProdcuts(productsState);
   }, [productsState]);
 
-  console.log(products, "products");
   return products.length > 0 ? (
     <Carousel autoplay autoplaySpeed={2000}>
       <div>

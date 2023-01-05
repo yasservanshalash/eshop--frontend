@@ -52,8 +52,6 @@ export default function NavBar({ userInput, setUserInput }: PropType) {
   const keyPress = (e: any) => {
     if(e.keyCode === 13){
        setUserInput(e.target.value);
-       console.log(e.target.value);
-       // put the login here
       navigate("/products");
       }
  }

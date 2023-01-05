@@ -22,7 +22,6 @@ const cartSlice = createSlice({
       } else {
         state.cart.push(action.payload);
       }
-      console.log(current(state.cart))
 
     },
     // removeFromCart: (state, action) => {

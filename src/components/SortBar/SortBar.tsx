@@ -10,7 +10,6 @@ const SortBar = () => {
     }
     const sortZA = () => {
         dispatch(productActions.sortByNameDescending());
-        console.log("clicked")
     }
 
     const sortPriceLowtoHigh = () => {

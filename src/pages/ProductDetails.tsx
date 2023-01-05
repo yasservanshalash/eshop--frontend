@@ -17,7 +17,6 @@ const ProductDetails = () => {
       useEffect(() => { 
         setItem(product);
       }, [products]);
-      console.log(item)
 
       const navigate = useNavigate();
   return (
