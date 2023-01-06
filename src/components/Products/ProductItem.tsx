@@ -137,10 +137,8 @@ const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
           />
         </IconButton>
         <Link to={`/products/${product.id}`}>
-
         <IconButton aria-label="add to favorites">
           <KeyboardArrowRightOutlined
-            onClick={cartClickHandler}
           />
         </IconButton>
         </Link>
