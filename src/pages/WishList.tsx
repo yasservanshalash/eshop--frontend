@@ -9,7 +9,7 @@ const WishList = () => {
   return (
     <div>
       { favProducts.length === 0 ? <h1 className='noFav'>No Products Added Yet</h1> :
-      favProducts.map((product) => <ProductItem product={product}/>)}
+      favProducts.map((product) => <ProductItem key={crypto.randomUUID()} product={product}/>)}
     </div>
   )
 }
