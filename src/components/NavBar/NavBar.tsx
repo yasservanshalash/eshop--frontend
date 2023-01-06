@@ -81,12 +81,10 @@ export default function NavBar({ userInput, setUserInput }: PropType) {
             sx={{ p: "10px" }}
             aria-label="search"
             onClick={clickHandler}
-            disableRipple
+            component={Link} to="/products"
             className="searchBtn"
           >
-            <Link to="/products">
-              <SearchIcon type="submit "className="searchIcon" />
-            </Link>
+              <SearchIcon type="submit" className="searchIcon" />
           </IconButton>
           <div className="buttons">
             <div className="products__link">

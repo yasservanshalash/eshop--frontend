@@ -136,12 +136,10 @@ const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
             style={{ color: cartClicked ? "#1876D1" : "" }}
           />
         </IconButton>
-        <Link to={`/products/${product.id}`}>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites" component={Link} to={`/products/${product.id}`}>
           <KeyboardArrowRightOutlined
           />
         </IconButton>
-        </Link>
       </div>
       </div>
 

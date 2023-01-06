@@ -35,21 +35,6 @@ a {
     color: black;
 }
 
-.searchIcon {
-    color: black;
-    width: 24px;
-    height: 24px;
-    margin: 10px;
-    position: relative;
-    top: 4px;
-    padding: -10px;
-    border-radius: 50%;
-    background-color: transparent;
-}
-
-.searchIcon:hover {
-    background-color: #b0b0b084
-}
 
 .lowernav {
     font-size: 120%;
