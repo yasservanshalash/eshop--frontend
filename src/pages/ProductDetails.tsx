@@ -26,8 +26,9 @@ const ProductDetails = () => {
         <img src={item?.image} alt={item?.title} className="productImgDetail"/>
         <div className='productInfo'>
         <h1>{item?.title}</h1>
-        <p>${item?.price}</p>
         <p>{item?.category}</p>
+        <p>{item?.description}</p>
+        <p>${item?.price}</p>
         <IconButton aria-label="add to favorites" onClick={() => navigate(-1)}>
           <KeyboardArrowLeft
           />
