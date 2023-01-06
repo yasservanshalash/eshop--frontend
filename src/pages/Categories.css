@@ -21,3 +21,7 @@
  justify-content: flex-start;
  align-items: flex-start;
 }
+.productsPage {
+    display: flex;
+    justify-content: center;
+}

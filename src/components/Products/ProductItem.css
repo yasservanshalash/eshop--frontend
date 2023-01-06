@@ -1,6 +1,8 @@
 .productItem {
+    width:  1224.120px;
+    height: 138.500px;
     display: flex;
-    padding: 50px 100px;
+    margin: 50px 100px;
     gap: 100px;
     
 }
