@@ -12,7 +12,7 @@ const Cart = () => {
     <div className='cart'>
         <div className='cartItems'>
       {cart.map((cartItem) => (
-        <CartItem cartItem={cartItem} />
+        <CartItem key={crypto.randomUUID()} cartItem={cartItem} />
       ))}
     </div>
     <div className='total'>

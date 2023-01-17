@@ -2,12 +2,17 @@ import { createSlice, PayloadAction, current } from "@reduxjs/toolkit";
 import { Action } from "@remix-run/router";
 import { Product } from "../../types/types";
 
+const localCart =
+  localStorage.getItem("cart") !== null
+    ? JSON.parse(localStorage.getItem("cart")!)
+    : [];
+
 type initialStateType = {
   cart: Product[];
 };
 
 const initialState: initialStateType = {
-  cart: [],
+  cart: localCart,
 };
 
 const cartSlice = createSlice({
@@ -21,6 +26,11 @@ const cartSlice = createSlice({
         return;
       } else {
         state.cart.push(action.payload);
+        localStorage.removeItem('cart');
+        localStorage.setItem(
+          "cart",
+          JSON.stringify(state.cart.map((item: Product) => item))
+        );
       }
 
     },
@@ -34,18 +44,33 @@ const cartSlice = createSlice({
     // },
     removeFromCart: (state, action) => {
         state.cart.splice(state.cart.findIndex((item) => item.title === action.payload), 1);
+        localStorage.removeItem('cart');
+        localStorage.setItem(
+          "cart",
+          JSON.stringify(state.cart.map((item: Product) => item))
+        );
     },
     increment: (state, action) => {
         const product = state.cart.find((product) => product.title === action.payload.title);
         if(product) {
             product.quantity = product.quantity! + 1
         }
+        localStorage.removeItem('cart');
+        localStorage.setItem(
+          "cart",
+          JSON.stringify(state.cart.map((item: Product) => item))
+        );
     },
     decrement: (state, action) => {
         const product = state.cart.find((product) => product.title === action.payload.title);
         if(product) {
             product.quantity = product.quantity! - 1
         }
+        localStorage.removeItem('cart');
+        localStorage.setItem(
+          "cart",
+          JSON.stringify(state.cart.map((item: Product) => item))
+        );
     },
   },
 });

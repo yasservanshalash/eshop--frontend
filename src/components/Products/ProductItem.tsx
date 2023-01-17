@@ -32,9 +32,20 @@ const ProductItem = ({ product }: PropType) => {
     // DISPATCH
   const dispatch = useDispatch();
 
-  const [favClicked, setFavClicked] = useState<boolean>(favProducts.includes(product) ? true : false);
-  const [cartClicked, setCartClicked] = useState<boolean>(cart.includes(product) ? true : false);
+  const localCart =
+  localStorage.getItem("cart") !== null
+    ? JSON.parse(localStorage.getItem("cart")!)
+    : [];
 
+    const localFav =
+    localStorage.getItem("favorite") !== null
+      ? JSON.parse(localStorage.getItem("favorite")!)
+      : [];
+  const [favClicked, setFavClicked] = useState<boolean>(localFav.find((item: Product) => item?.title === product?.title) || favProducts.includes(product) ? true : false);
+  const [cartClicked, setCartClicked] = useState<boolean>(localCart.find((item: Product) => item?.title === product?.title) || cart.includes(product) ? true : false);
+
+  // const local = localCart.map((item: Product[]) => item).includes(product)
+  // console.log(local)
   // HANDLERS
 
   const favAddHandleClick = () => {

@@ -1,12 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Product } from "../../types/types";
 
+const localFav =
+  localStorage.getItem("favorite") !== null
+    ? JSON.parse(localStorage.getItem("favorite")!)
+    : [];
+
 type initialStateType = {
     favProducts: Product[]
 }
 
 const initialState: initialStateType = {
-    favProducts: []
+    favProducts: localFav
 }
 
 const favProductsSlice = createSlice({
@@ -18,6 +23,11 @@ const favProductsSlice = createSlice({
                 return;
               } else {
                 state.favProducts.push(action.payload);
+                localStorage.removeItem('favorite');
+                localStorage.setItem(
+                  "favorite",
+                  JSON.stringify(state.favProducts.map((item: Product) => item))
+                );
               }
             },
             removeFavResolution: (state, action) => {
@@ -26,6 +36,11 @@ const favProductsSlice = createSlice({
                   );
                   if (result !== -1) {
                     state.favProducts.splice(result, 1);
+                    localStorage.removeItem('favorite');
+                    localStorage.setItem(
+                      "favorite",
+                      JSON.stringify(state.favProducts.map((item: Product) => item))
+                    );
                   }
             }
     }
